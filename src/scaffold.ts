@@ -1,5 +1,5 @@
-import { mkdir, stat, writeFile } from 'node:fs/promises';
-import { dirname, join, resolve } from 'node:path';
+import { mkdir, stat, writeFile } from 'fs/promises';
+import { dirname, join, resolve } from 'path';
 
 export type ScaffoldOptions = {
     directory: string;
