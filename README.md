@@ -50,6 +50,7 @@ repo-template my-new-project
 - `docs/DECISIONS.md`
 - `.github/ISSUE_TEMPLATE.md`
 - `.github/PULL_REQUEST_TEMPLATE.md`
+- `.github/CLA.md`
 - `.vscode/settings.json`
 - `.vscode/extensions.json`
 - `.vscode/tasks.json`
@@ -69,4 +70,8 @@ npm run dev
 
 ```bash
 npm run build
+```
+
+```bash
+npm run changelog
 ```

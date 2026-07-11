@@ -1,25 +1,36 @@
 # Contributing
 
-## Purpose
+Thanks for taking the time to improve the scaffold.
 
-This repo is the source for the scaffold command and the document templates it
-generates.
+## Before you start
 
-## Change process
+- Read the README to understand the current output and command flow.
+- Check whether the change affects generated files, snippets, or the changelog updater.
+- If the repo includes `.github/CLA.md`, read it before opening a pull request.
+- Keep the templates short, explicit, and easy to tab through.
 
-1. Update the file generator in `src/scaffold.ts`.
-2. Update the matching snippet definitions in
-   `.vscode/project-docs.code-snippets`.
-3. Update this README if the generated file list changes.
+## Recommended workflow
 
-## Placeholder rules
+1. Update the source template in `src/scaffold.ts`.
+2. Update the matching snippet in `.vscode/project-docs.code-snippets`.
+3. Update the README if the generated output changes.
+4. Refresh the changelog if the repo history or release notes changed.
+5. Run the scaffold against a throwaway directory and inspect the result.
 
-- Keep generated documents short and explicit.
-- Prefer visible placeholder text over empty sections.
-- Use the same section order in the generated file and the snippet body.
+## Pull requests
+
+- Keep PRs focused on one change when possible.
+- Mention any template files that changed in the summary.
+- Include a quick note if the update changes the output shape for existing users.
+
+## Reporting issues
+
+- Use the issue template when the repo provides one.
+- Include the command you ran and the file that looked wrong.
+- Add a generated example when the difference is visual or structural.
 
 ## Verification
 
-- Run `npm run build`.
-- Run the command locally against a throwaway directory and inspect the
-  generated files.
+- `npm run build`
+- `npm run changelog` if the changelog content needs a refresh
+- Run the command against a throwaway directory and inspect the output.
