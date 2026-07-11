@@ -40,6 +40,7 @@ repo-template my-new-project
 
 ## Generated files
 
+- `AGENTS.md`
 - `README.md`
 - `CONTRIBUTING.md`
 - `CHANGELOG.md`
@@ -58,9 +59,10 @@ repo-template my-new-project
 
 ## Editing flow
 
-Open one of the scaffolded files and insert the matching snippet from the
-command palette or by typing its prefix. The snippet bodies use tab stops so you
-can move through the placeholder sections in order.
+Open `AGENTS.md` first to set the project instructions, then
+move through the rest of the scaffold. Use the matching snippet from the
+command palette or by typing its prefix. The snippet bodies use tab stops so
+you can move through the placeholder sections in order.
 
 ## Development
 

@@ -72,6 +72,28 @@
             "${5:Any technical, legal, or delivery constraints.}"
         ]
     },
+    "Agent Instructions": {
+        "prefix": "repo-agents",
+        "description": "Insert shared project instructions for coding agents.",
+        "body": [
+            "# Agent Instructions",
+            "",
+            "Use this file as the first place to refine instructions for coding agents when this scaffold is applied to a new project.",
+            "",
+            "## What to capture",
+            "",
+            "- ${1:The project goal in one or two sentences.}",
+            "- ${2:The most important coding or documentation conventions.}",
+            "- ${3:Any do-not-break rules for the generated repository.}",
+            "- ${4:The local commands or checks agents should prefer first.}",
+            "",
+            "## Keep it current",
+            "",
+            "- ${5:Update this file before filling in the rest of the scaffold if the project direction changes.}",
+            "- ${6:Keep the guidance short enough to read at the start of every session.}",
+            "- ${7:Keep durable project rules here so every supported agent can use the same source of truth.}"
+        ]
+    },
     "Decision Log": {
         "prefix": "repo-decisions",
         "description": "Insert a decision record entry.",

@@ -70,15 +70,23 @@ function renderReadme(options: {
         '## What you get',
         '',
         '- A full starter doc set for the repo owner and contributors.',
+        '- A first-pass instruction doc for coding agents.',
         '- GitHub issue and pull request templates.',
         '- VS Code settings, tasks, and snippets for the standard docs.',
         '',
         '## Project map',
         '',
+        '- `AGENTS.md`: first-pass instructions for coding agents',
         '- `docs/`: planning notes, brief, and decisions',
         '- `.github/`: contribution policy, CLA, and GitHub templates',
         '- `.vscode/`: editor settings, tasks, and snippets',
         '- `src/`: implementation files if this project needs code',
+        '',
+        '## Refinement order',
+        '',
+        '- Start by refining `AGENTS.md`.',
+        '- Then update the project brief and decision log as the scaffold changes.',
+        '- Keep the README aligned with any new project conventions.',
         '',
         '## Ownership',
         '',
@@ -97,17 +105,19 @@ function renderContributing(): string {
         '## Before you start',
         '',
         '- Read the README to understand the current output and command flow.',
+        '- Review `AGENTS.md` first if you are changing the project instructions.',
         '- Check whether the change affects generated files, snippets, or the changelog updater.',
         '- If the repo includes `.github/CLA.md`, read it before opening a pull request.',
         '- Keep the templates short, explicit, and easy to tab through.',
         '',
         '## Recommended workflow',
         '',
-        '1. Update the source template in `src/scaffold.ts`.',
-        '2. Update the matching snippet in `.vscode/project-docs.code-snippets`.',
-        '3. Update the README if the generated output changes.',
-        '4. Refresh the changelog if the repo history or release notes changed.',
-        '5. Run the scaffold against a throwaway directory and inspect the result.',
+        '1. Update `AGENTS.md` if the project instructions changed.',
+        '2. Update the source template in `src/scaffold.ts`.',
+        '3. Update the matching snippet in `.vscode/project-docs.code-snippets`.',
+        '4. Update the README if the generated output changes.',
+        '5. Refresh the changelog if the repo history or release notes changed.',
+        '6. Run the scaffold against a throwaway directory and inspect the result.',
         '',
         '## Pull requests',
         '',
@@ -334,6 +344,28 @@ function renderDecisionLog(): string {
     ].join('\n');
 }
 
+function renderAgentsInstructions(): string {
+    return [
+        '# Agent Instructions',
+        '',
+        'Use this file as the first place to refine instructions for coding agents when this scaffold is applied to a new project.',
+        '',
+        '## What to capture',
+        '',
+        '- The project goal in one or two sentences.',
+        '- The most important coding or documentation conventions.',
+        '- Any do-not-break rules for the generated repository.',
+        '- The local commands or checks agents should prefer first.',
+        '',
+        '## Keep it current',
+        '',
+        '- Update this file before filling in the rest of the scaffold if the project direction changes.',
+        '- Keep the guidance short enough to read at the start of every session.',
+        '- Keep durable project rules here so every supported agent can use the same source of truth.',
+        '',
+    ].join('\n');
+}
+
 function renderIssueTemplate(): string {
     return [
         '# Issue',
@@ -517,6 +549,28 @@ function renderSnippets(): string {
                 '## Constraints',
                 '',
                 '${5:Any technical, legal, or delivery constraints.}',
+            ],
+        },
+        'Agent Instructions': {
+            prefix: 'repo-agents',
+            description: 'Insert shared project instructions for coding agents.',
+            body: [
+                '# Agent Instructions',
+                '',
+                'Use this file as the first place to refine instructions for coding agents when this scaffold is applied to a new project.',
+                '',
+                '## What to capture',
+                '',
+                '- ${1:The project goal in one or two sentences.}',
+                '- ${2:The most important coding or documentation conventions.}',
+                '- ${3:Any do-not-break rules for the generated repository.}',
+                '- ${4:The local commands or checks agents should prefer first.}',
+                '',
+                '## Keep it current',
+                '',
+                '- ${5:Update this file before filling in the rest of the scaffold if the project direction changes.}',
+                '- ${6:Keep the guidance short enough to read at the start of every session.}',
+                '- ${7:Keep durable project rules here so every supported agent can use the same source of truth.}',
             ],
         },
         'Decision Log': {
@@ -771,6 +825,7 @@ export async function scaffoldProject(options: ScaffoldOptions): Promise<void> {
     await ensureDirectory(rootDirectory);
 
     const files: FileDefinition[] = [
+        { path: 'AGENTS.md', content: renderAgentsInstructions() },
         {
             path: 'README.md',
             content: renderReadme({
