@@ -18,6 +18,7 @@ function printHelp(): void {
         'Usage:',
         '  repo-template init [directory] [options]',
         '  repo-template [directory] [options]',
+        '  repo-template [options]             Create the scaffold in the current directory',
         '',
         'Options:',
         '  --name <name>          Project name used in generated documents',

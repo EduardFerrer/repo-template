@@ -31,6 +31,14 @@ You can also omit the `init` subcommand:
 repo-template my-new-project
 ```
 
+To create the scaffold in the current directory, omit the directory too:
+
+```bash
+repo-template
+```
+
+Existing files are preserved by default. Add `--force` to overwrite them.
+
 ### Options
 
 - `--name <name>`: project name used in generated documents.
