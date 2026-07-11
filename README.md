@@ -48,6 +48,8 @@ repo-template my-new-project
 - `CODE_OF_CONDUCT.md`
 - `docs/PROJECT-BRIEF.md`
 - `docs/DECISIONS.md`
+- `.github/ISSUE_TEMPLATE.md`
+- `.github/PULL_REQUEST_TEMPLATE.md`
 - `.vscode/settings.json`
 - `.vscode/extensions.json`
 - `.vscode/tasks.json`
