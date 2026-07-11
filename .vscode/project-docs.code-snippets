@@ -1,0 +1,151 @@
+{
+    "Project README": {
+        "prefix": "repo-readme",
+        "description": "Insert the standard project README scaffold.",
+        "body": [
+            "# ${1:Project name}",
+            "",
+            "${2:One-sentence description of the project.}",
+            "",
+            "## What this project is for",
+            "",
+            "${3:Describe the problem this project solves and who it helps.}",
+            "",
+            "## Getting started",
+            "",
+            "- Install dependencies: `${4:command}`",
+            "- Run the project: `${5:command}`",
+            "- Build the project: `${6:command}`",
+            "",
+            "## Project structure",
+            "",
+            "- `docs/`: ${7:where planning and decision notes live}",
+            "- `.vscode/`: ${8:editor settings, tasks, and snippets}",
+            "- `${9:other-folder}/`: ${10:what belongs here}",
+            "",
+            "## Notes",
+            "",
+            "${11:Add the first things a contributor should know.}"
+        ]
+    },
+    "Project Brief": {
+        "prefix": "repo-brief",
+        "description": "Insert a project brief with tab stops.",
+        "body": [
+            "# Project Brief",
+            "",
+            "## Goal",
+            "",
+            "${1:What is the outcome of this project?}",
+            "",
+            "## Audience",
+            "",
+            "${2:Who will use this project?}",
+            "",
+            "## Success criteria",
+            "",
+            "- ${3:First measurable result}",
+            "- ${4:Second measurable result}",
+            "",
+            "## Constraints",
+            "",
+            "${5:Any technical, legal, or delivery constraints.}"
+        ]
+    },
+    "Decision Log": {
+        "prefix": "repo-decisions",
+        "description": "Insert a decision record entry.",
+        "body": [
+            "## ${1:YYYY-MM-DD} - ${2:Decision title}",
+            "",
+            "- Context: ${3:Why the decision was needed.}",
+            "- Decision: ${4:What you chose.}",
+            "- Consequences: ${5:What changes because of the choice.}"
+        ]
+    },
+    "Contribution Guide": {
+        "prefix": "repo-contributing",
+        "description": "Insert a contributing guide scaffold.",
+        "body": [
+            "# Contributing",
+            "",
+            "## Purpose",
+            "",
+            "${1:Explain what contributors should understand about this repo.}",
+            "",
+            "## Change process",
+            "",
+            "1. ${2:Update the source template.}",
+            "2. ${3:Update the matching snippet.}",
+            "3. ${4:Update the README if the generated output changed.}",
+            "",
+            "## Verification",
+            "",
+            "- ${5:Build command}",
+            "- ${6:Manual check or test command}"
+        ]
+    },
+    "Roadmap": {
+        "prefix": "repo-roadmap",
+        "description": "Insert a roadmap scaffold.",
+        "body": [
+            "# Roadmap",
+            "",
+            "## Current goal",
+            "",
+            "${1:State the next concrete goal.}",
+            "",
+            "## Near term",
+            "",
+            "- ${2:First near-term milestone}",
+            "- ${3:Second near-term milestone}",
+            "",
+            "## Later",
+            "",
+            "- ${4:Longer-term idea}",
+            "- ${5:Another longer-term idea}"
+        ]
+    },
+    "Security Policy": {
+        "prefix": "repo-security",
+        "description": "Insert a security policy scaffold.",
+        "body": [
+            "# Security",
+            "",
+            "## Reporting issues",
+            "",
+            "${1:How should a reporter contact the maintainers?}",
+            "",
+            "## What to include",
+            "",
+            "- ${2:Command or action that triggered the issue}",
+            "- ${3:Expected result}",
+            "- ${4:Observed result}",
+            "",
+            "## Response process",
+            "",
+            "${5:Describe how security reports are handled.}"
+        ]
+    },
+    "Code of Conduct": {
+        "prefix": "repo-conduct",
+        "description": "Insert a code of conduct scaffold.",
+        "body": [
+            "# Code of Conduct",
+            "",
+            "## Expected behavior",
+            "",
+            "- ${1:Respectful behavior}",
+            "- ${2:Actionable feedback}",
+            "",
+            "## Unacceptable behavior",
+            "",
+            "- ${3:Harassment}",
+            "- ${4:Sabotage}",
+            "",
+            "## Enforcement",
+            "",
+            "${5:Who handles reports and how?}"
+        ]
+    }
+}

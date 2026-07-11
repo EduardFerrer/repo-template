@@ -1,0 +1,21 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Replace me: build command",
+            "type": "shell",
+            "command": "echo",
+            "args": [
+                "Replace this task with your build command."
+            ]
+        },
+        {
+            "label": "Replace me: test command",
+            "type": "shell",
+            "command": "echo",
+            "args": [
+                "Replace this task with your test command."
+            ]
+        }
+    ]
+}
