@@ -70,14 +70,16 @@ function renderReadme(options: {
         '## What you get',
         '',
         '- A full starter doc set for the repo owner and contributors.',
-        '- A first-pass instruction doc for coding agents.',
+        '- A first-pass instruction doc and local skill workspace for coding agents.',
+        '- A safe MCP configuration example for optional local tool integrations.',
         '- GitHub issue and pull request templates.',
         '- VS Code settings, tasks, and snippets for the standard docs.',
         '',
         '## Project map',
         '',
         '- `AGENTS.md`: first-pass instructions for coding agents',
-        '- `docs/`: planning notes, brief, and decisions',
+        '- `.agents/`: repository-local guidance and reusable agent skills',
+        '- `.mcp.json.example`: optional local MCP configuration starting point',
         '- `.github/`: contribution policy, CLA, and GitHub templates',
         '- `.vscode/`: editor settings, tasks, and snippets',
         '- `src/`: implementation files if this project needs code',
@@ -85,7 +87,8 @@ function renderReadme(options: {
         '## Refinement order',
         '',
         '- Start by refining `AGENTS.md`.',
-        '- Then update the project brief and decision log as the scaffold changes.',
+        '- Add a focused skill under `.agents/skills/` when a workflow is repeated.',
+        '- Configure MCP servers locally only when the project needs external tools.',
         '- Keep the README aligned with any new project conventions.',
         '',
         '## Ownership',
@@ -299,47 +302,65 @@ function renderCodeOfConduct(): string {
     ].join('\n');
 }
 
-function renderProjectBrief(): string {
+function renderAgentAssetsReadme(): string {
     return [
-        '# Project Brief',
+        '# Agent Assets',
         '',
-        '## Goal',
+        'This directory holds repository-local assets that make coding agents more consistent without making `AGENTS.md` long.',
         '',
-        '[Describe the problem this project solves.]',
+        '## Skills',
         '',
-        '## Audience',
+        'Put reusable, project-specific workflows in `skills/<skill-name>/SKILL.md`. Keep each skill focused on one repeatable task and include the checks needed to verify its result.',
         '',
-        '[Describe who will use this project.]',
+        '## MCP configuration',
         '',
-        '## Success criteria',
-        '',
-        '- [Define one measurable result.]',
-        '- [Define a second measurable result.]',
-        '',
-        '## Constraints',
-        '',
-        '- [List any technical or business constraints here.]',
+        'Use `.mcp.json.example` as a starting point for optional local MCP servers. Copy it to `.mcp.json`, replace the placeholders, and keep credentials in environment variables rather than tracked files.',
         '',
     ].join('\n');
 }
 
-function renderDecisionLog(): string {
+function renderAgentSkillsReadme(): string {
     return [
-        '# Decisions',
+        '# Repository Skills',
         '',
-        'Use this file to record the decisions that shaped the project.',
+        'Create one directory per repeatable project workflow. Each directory should contain a `SKILL.md` that states:',
         '',
-        '## YYYY-MM-DD - Decision title',
+        '- When the skill applies.',
+        '- The inputs and constraints it expects.',
+        '- The steps an agent should follow.',
+        '- The commands or evidence that verify the outcome.',
         '',
-        '- Context: [Why the decision was needed.]',
-        '- Decision: [What you chose.]',
-        '- Consequences: [What changes because of the choice.]',
+        'Avoid putting general project rules here; those belong in `AGENTS.md`.',
         '',
-        '## YYYY-MM-DD - Decision title',
-        '',
-        '- Context: [Why the decision was needed.]',
-        '- Decision: [What you chose.]',
-        '- Consequences: [What changes because of the choice.]',
+    ].join('\n');
+}
+
+function renderMcpExample(): string {
+    return `${JSON.stringify(
+        {
+            mcpServers: {
+                'example-server': {
+                    command: 'npx',
+                    args: ['-y', '@example/mcp-server'],
+                    env: {
+                        EXAMPLE_API_KEY: 'replace-with-an-environment-variable',
+                    },
+                },
+            },
+        },
+        null,
+        2,
+    )}\n`;
+}
+
+function renderGitignore(): string {
+    return [
+        'node_modules/',
+        'dist/',
+        '.env',
+        '.env.*',
+        '!.env.example',
+        '.mcp.json',
         '',
     ].join('\n');
 }
@@ -356,12 +377,14 @@ function renderAgentsInstructions(): string {
         '- The most important coding or documentation conventions.',
         '- Any do-not-break rules for the generated repository.',
         '- The local commands or checks agents should prefer first.',
+        '- Whether `.agents/skills/` contains a relevant reusable workflow.',
         '',
         '## Keep it current',
         '',
         '- Update this file before filling in the rest of the scaffold if the project direction changes.',
         '- Keep the guidance short enough to read at the start of every session.',
         '- Keep durable project rules here so every supported agent can use the same source of truth.',
+        '- Keep external-tool configuration local; commit only `.mcp.json.example`.',
         '',
     ].join('\n');
 }
@@ -511,44 +534,23 @@ function renderSnippets(): string {
                 '## What you get',
                 '',
                 '- ${8:A full starter doc set for the repo owner and contributors.}',
-                '- ${9:GitHub issue and pull request templates.}',
-                '- ${10:VS Code settings, tasks, and snippets.}',
+                '- ${9:Repository-local guidance and reusable agent skills.}',
+                '- ${10:GitHub issue and pull request templates.}',
+                '- ${11:VS Code settings, tasks, and snippets.}',
                 '',
                 '## Project map',
                 '',
-                '- `docs/`: ${11:planning notes, brief, and decisions}',
-                '- `.github/`: ${12:contribution policy, CLA, and GitHub templates}',
-                '- `.vscode/`: ${13:editor settings, tasks, and snippets}',
-                '- `${14:other-folder}/`: ${15:what belongs here}',
+                '- `AGENTS.md`: ${12:project rules for contributors and coding agents}',
+                '- `.agents/`: ${13:repository-local skills and agent assets}',
+                '- `.mcp.json.example`: ${14:optional local MCP configuration}',
+                '- `.github/`: ${15:contribution policy, CLA, and GitHub templates}',
+                '- `.vscode/`: ${16:editor settings, tasks, and snippets}',
+                '- `${17:other-folder}/`: ${18:what belongs here}',
                 '',
                 '## Ownership',
                 '',
-                '- Owner: ${16:owner or team name}',
-                '- ${17:Repository path or maintainer note.}',
-            ],
-        },
-        'Project Brief': {
-            prefix: 'repo-brief',
-            description: 'Insert a project brief with tab stops.',
-            body: [
-                '# Project Brief',
-                '',
-                '## Goal',
-                '',
-                '${1:What is the outcome of this project?}',
-                '',
-                '## Audience',
-                '',
-                '${2:Who will use this project?}',
-                '',
-                '## Success criteria',
-                '',
-                '- ${3:First measurable result}',
-                '- ${4:Second measurable result}',
-                '',
-                '## Constraints',
-                '',
-                '${5:Any technical, legal, or delivery constraints.}',
+                '- Owner: ${19:owner or team name}',
+                '- ${20:Repository path or maintainer note.}',
             ],
         },
         'Agent Instructions': {
@@ -565,23 +567,14 @@ function renderSnippets(): string {
                 '- ${2:The most important coding or documentation conventions.}',
                 '- ${3:Any do-not-break rules for the generated repository.}',
                 '- ${4:The local commands or checks agents should prefer first.}',
+                '- ${5:Whether .agents/skills/ contains a relevant reusable workflow.}',
                 '',
                 '## Keep it current',
                 '',
-                '- ${5:Update this file before filling in the rest of the scaffold if the project direction changes.}',
-                '- ${6:Keep the guidance short enough to read at the start of every session.}',
-                '- ${7:Keep durable project rules here so every supported agent can use the same source of truth.}',
-            ],
-        },
-        'Decision Log': {
-            prefix: 'repo-decisions',
-            description: 'Insert a decision record entry.',
-            body: [
-                '## ${1:YYYY-MM-DD} - ${2:Decision title}',
-                '',
-                '- Context: ${3:Why the decision was needed.}',
-                '- Decision: ${4:What you chose.}',
-                '- Consequences: ${5:What changes because of the choice.}',
+                '- ${6:Update this file before filling in the rest of the scaffold if the project direction changes.}',
+                '- ${7:Keep the guidance short enough to read at the start of every session.}',
+                '- ${8:Keep durable project rules here so every supported agent can use the same source of truth.}',
+                '- ${9:Keep external-tool configuration local; commit only .mcp.json.example.}',
             ],
         },
         'Issue Template': {
@@ -826,6 +819,10 @@ export async function scaffoldProject(options: ScaffoldOptions): Promise<void> {
 
     const files: FileDefinition[] = [
         { path: 'AGENTS.md', content: renderAgentsInstructions() },
+        { path: '.gitignore', content: renderGitignore() },
+        { path: '.mcp.json.example', content: renderMcpExample() },
+        { path: join('.agents', 'README.md'), content: renderAgentAssetsReadme() },
+        { path: join('.agents', 'skills', 'README.md'), content: renderAgentSkillsReadme() },
         {
             path: 'README.md',
             content: renderReadme({
@@ -839,8 +836,6 @@ export async function scaffoldProject(options: ScaffoldOptions): Promise<void> {
         { path: 'ROADMAP.md', content: renderRoadmap() },
         { path: 'SECURITY.md', content: renderSecurity() },
         { path: 'CODE_OF_CONDUCT.md', content: renderCodeOfConduct() },
-        { path: join('docs', 'PROJECT-BRIEF.md'), content: renderProjectBrief() },
-        { path: join('docs', 'DECISIONS.md'), content: renderDecisionLog() },
         { path: join('.github', 'ISSUE_TEMPLATE.md'), content: renderIssueTemplate() },
         {
             path: join('.github', 'PULL_REQUEST_TEMPLATE.md'),

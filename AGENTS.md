@@ -9,6 +9,8 @@ scaffold is applied to a new project.
 - The most important coding or documentation conventions.
 - Any do-not-break rules for the generated repository.
 - The local commands or checks agents should prefer first.
+- Whether `.agents/skills/` contains a relevant reusable workflow.
+- Whether `.agents/skills/` contains a relevant reusable workflow.
 
 ## Keep it current
 
@@ -16,3 +18,5 @@ scaffold is applied to a new project.
   direction changes.
 - Keep the guidance short enough to read at the start of every session.
 - Keep durable project rules here so every supported agent can use the same source of truth.
+- Keep external-tool configuration local; commit only `.mcp.json.example`.
+- Keep external-tool configuration local; commit only `.mcp.json.example`.
