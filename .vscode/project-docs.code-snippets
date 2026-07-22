@@ -28,6 +28,7 @@
       "- Install dependencies: `${5:command}`",
       "- Run the project: `${6:command}`",
       "- Build the project: `${7:command}`",
+      "- Update the changelog: `node scripts/update-changelog.js`",
       "",
       "## What you get",
       "",
@@ -171,7 +172,7 @@
       "## Verification",
       "",
       "- ${17:npm run build}",
-      "- ${18:npm run changelog if the changelog needs a refresh}",
+      "- ${18:node scripts/update-changelog.js after changelog-relevant commits}",
       "- ${19:Run the command against a throwaway directory and inspect the output.}"
     ]
   },
