@@ -1,1 +1,16 @@
-A code wiki for this local repository. Prioritize a concise quickstart, architecture overview, source map, key workflows, domain concepts, operations/runbook notes, testing guidance, and integration points. Inspect git history to understand reasoning behind code changes and the progression of the repository. Keep pages grounded in the repository structure and recent code changes. Prefer practical navigation for engineers over generic summaries.
+# OpenWiki Instructions
+
+Use this brief to guide generated documentation for this repository. OpenWiki
+reads it during initialization and updates, but does not overwrite it.
+
+## Scope
+
+- Document the project purpose, architecture, primary workflows, and verification commands.
+- Prefer source-grounded explanations with links to the relevant files.
+- Exclude generated artifacts, credentials, and local machine configuration.
+
+## Priorities
+
+- Help a new contributor or coding agent understand where to start.
+- Explain important boundaries, conventions, and trade-offs.
+- Keep the wiki concise enough to navigate and refresh confidently.
