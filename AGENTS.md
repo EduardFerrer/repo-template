@@ -20,3 +20,13 @@ scaffold is applied to a new project.
 - Keep durable project rules here so every supported agent can use the same source of truth.
 - Keep external-tool configuration local; commit only `.mcp.json.example`.
 - Keep external-tool configuration local; commit only `.mcp.json.example`.
+
+<!-- OPENWIKI:START -->
+
+## OpenWiki
+
+This repository uses OpenWiki for recurring code documentation. Start with `openwiki/quickstart.md`, then follow its links to architecture, workflows, domain concepts, operations, integrations, testing guidance, and source maps.
+
+The scheduled OpenWiki GitHub Actions workflow refreshes the repository wiki. Do not hand-edit generated OpenWiki pages unless explicitly asked; prefer updating source code/docs and letting OpenWiki regenerate.
+
+<!-- OPENWIKI:END -->
