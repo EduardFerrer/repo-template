@@ -36,20 +36,22 @@
       "- ${9:Repository-local guidance and reusable agent skills.}",
       "- ${10:GitHub issue and pull request templates.}",
       "- ${11:VS Code settings, tasks, and snippets.}",
+      "- ${12:An OpenWiki brief and workflow example for generated codebase docs.}",
       "",
       "## Project map",
       "",
-      "- `AGENTS.md`: ${12:project rules for contributors and coding agents}",
-      "- `.agents/`: ${13:repository-local skills and agent assets}",
-      "- `.mcp.json.example`: ${14:optional local MCP configuration}",
-      "- `.github/`: ${15:contribution policy, CLA, and GitHub templates}",
-      "- `.vscode/`: ${16:editor settings, tasks, and snippets}",
-      "- `${17:other-folder}/`: ${18:what belongs here}",
+      "- `AGENTS.md`: ${13:project rules for contributors and coding agents}",
+      "- `.agents/`: ${14:repository-local skills and agent assets}",
+      "- `.mcp.json.example`: ${15:optional local MCP configuration}",
+      "- `openwiki/INSTRUCTIONS.md`: ${16:scope and priorities for generated codebase docs}",
+      "- `.github/`: ${17:contribution policy, templates, and workflow examples}",
+      "- `.vscode/`: ${18:editor settings, tasks, and snippets}",
+      "- `${19:other-folder}/`: ${20:what belongs here}",
       "",
       "## Ownership",
       "",
-      "- Owner: ${19:owner or team name}",
-      "- ${20:Repository path or maintainer note.}"
+      "- Owner: ${21:owner or team name}",
+      "- ${22:Repository path or maintainer note.}"
     ]
   },
   "Agent Instructions": {
@@ -67,13 +69,15 @@
       "- ${3:Any do-not-break rules for the generated repository.}",
       "- ${4:The local commands or checks agents should prefer first.}",
       "- ${5:Whether .agents/skills/ contains a relevant reusable workflow.}",
+      "- ${6:Whether openwiki/ contains relevant generated codebase documentation.}",
       "",
       "## Keep it current",
       "",
-      "- ${6:Update this file before filling in the rest of the scaffold if the project direction changes.}",
-      "- ${7:Keep the guidance short enough to read at the start of every session.}",
-      "- ${8:Keep durable project rules here so every supported agent can use the same source of truth.}",
-      "- ${9:Keep external-tool configuration local; commit only .mcp.json.example.}"
+      "- ${7:Update this file before filling in the rest of the scaffold if the project direction changes.}",
+      "- ${8:Keep the guidance short enough to read at the start of every session.}",
+      "- ${9:Keep durable project rules here so every supported agent can use the same source of truth.}",
+      "- ${10:Keep external-tool configuration local; commit only .mcp.json.example.}",
+      "- ${11:Use openwiki/INSTRUCTIONS.md to steer OpenWiki; treat other wiki pages as generated.}"
     ]
   },
   "Issue Template": {
