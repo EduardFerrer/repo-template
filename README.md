@@ -52,6 +52,7 @@ Existing files are preserved by default. Add `--force` to overwrite them.
 - `README.md`
 - `CONTRIBUTING.md`
 - `CHANGELOG.md`
+- `scripts/update-changelog.js`
 - `ROADMAP.md`
 - `SECURITY.md`
 - `CODE_OF_CONDUCT.md`
@@ -88,4 +89,10 @@ npm run build
 
 ```bash
 npm run changelog
+```
+
+Generated repositories can update their changelog without an npm script:
+
+```bash
+node scripts/update-changelog.js
 ```
