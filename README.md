@@ -59,6 +59,8 @@ Existing files are preserved by default. Add `--force` to overwrite them.
 - `.agents/README.md`
 - `.agents/skills/README.md`
 - `.mcp.json.example`
+- `openwiki/INSTRUCTIONS.md`
+- `.github/workflows/openwiki-update.yml.example`
 - `.gitignore`
 - `.github/ISSUE_TEMPLATE.md`
 - `.github/PULL_REQUEST_TEMPLATE.md`
@@ -76,6 +78,16 @@ under `.agents/skills/` only after it becomes repeatable. Copy
 credentials outside the repository. Use the matching snippet from the command
 palette or by typing its prefix. The snippet bodies use tab stops so you can
 move through the placeholder sections in order.
+
+## OpenWiki
+
+New projects include an OpenWiki scope brief and a disabled GitHub Actions
+workflow example. Install the CLI, tailor `openwiki/INSTRUCTIONS.md`, then run
+`openwiki --init`. Once the chosen provider secret and model are configured,
+rename the workflow example to `openwiki-update.yml` to receive daily
+documentation-update pull requests.
+
+The optional workflow is adapted from the [OpenWiki project](https://github.com/langchain-ai/openwiki), maintained by LangChain and its contributors. OpenWiki is MIT-licensed; the workflow example retains the upstream copyright and permission notice. See the [OpenWiki license](https://github.com/langchain-ai/openwiki/blob/main/LICENSE).
 
 ## Development
 
