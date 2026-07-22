@@ -5,12 +5,14 @@ const { writeFileSync } = require('node:fs');
 const { resolve } = require('node:path');
 
 const CATEGORY_ORDER = ['Added', 'Changed', 'Fixed', 'Docs', 'Other'];
+const projectRoot = resolve(__dirname, '..');
 
 function loadCommits() {
     const output = execFileSync(
         'git',
         ['log', '--no-merges', '--date=short', '--pretty=format:%ad\t%s'],
         {
+            cwd: projectRoot,
             encoding: 'utf8',
         },
     ).trim();
@@ -131,7 +133,7 @@ function formatChangelog(commits) {
 function main() {
     const commits = loadCommits();
     const changelog = formatChangelog(commits);
-    writeFileSync(resolve('CHANGELOG.md'), changelog, 'utf8');
+    writeFileSync(resolve(projectRoot, 'CHANGELOG.md'), changelog, 'utf8');
     console.log(`Updated CHANGELOG.md from ${commits.length} commit(s).`);
 }
 
